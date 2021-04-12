@@ -23,7 +23,7 @@
     ```typescript
     app.use(express.static(path.join(__dirname, '../build')));
     ```
-  * /api へのアクセスをport:8080にリダイレクトする
+  * /api へのアクセスをport:8080にリダイレクトする✔
     * 先にapiサーバのmockを作成し、全てのレスポンスに対してstatus:200を返すようにする✔
     * mockに対してアクセスを転送する(/authへのアクセス除く)
   * /auth でsaml認証を行えるように
