@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const SERVICE_NAME = 'express-tsnode-react';
-const SVC = `/${SERVICE_NAME}/api/v1`
+// const SVC = `/${SERVICE_NAME}/api/v1`;
+const SVC = `/${SERVICE_NAME}`;
 
 async function request<T = any>( path: string, config={} ){
     // const url = `${process.env.REACT_APP_API_ORIGIN}${path}`;

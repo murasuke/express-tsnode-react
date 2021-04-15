@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React , {useEffect, useContext} from 'react';
-import { Page2ContextProvider, Page2Context } from './page2Reducer'
+import { Page2ContextProvider, Page2Context } from './page2Reducer';
 import { InputComponent1, InputComponent2 } from './InputComponent2';
 import { SiteContext } from '../../utils/SiteContext';
 import { postPage2 } from '../../utils/api';
@@ -43,7 +43,7 @@ const Page2Form: React.FC = ()=> {
     if (response.status !== 200) {
       console.log(response.statusText);
     }
-  }
+  };
 
   return (
     <>
@@ -61,7 +61,7 @@ const Page2Form: React.FC = ()=> {
  * ・useContextフックを使うことで、propsにコールバックを引き渡す必要はない。<br />
  * ・ページとコンポーネントの階層が深くなる場合でも複雑化しない。<br />
     </>
-  )
-}
+  );
+};
 
 export default Page2;

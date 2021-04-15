@@ -11,7 +11,7 @@ const initialState: SiteContextDataType = {
   pageName: "",
   userId: 123,
   userName: "user123",
-}
+};
 
 function reducer(state:SiteContextDataType,  action: Action) {
   switch (action.type) {
@@ -27,7 +27,7 @@ function reducer(state:SiteContextDataType,  action: Action) {
         userName: action.strValue,
       };
     default:
-      return state
+      return state;
   }
 }
 
@@ -37,9 +37,9 @@ export const SiteContext = React.createContext({} as {
 });
 
 export const ContextProvider: React.FC = (props) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
   return <SiteContext.Provider value={{state, dispatch}}>
     {/* eslint-disable-next-line react/destructuring-assignment */}
     {props.children}
-  </SiteContext.Provider>
-}
+  </SiteContext.Provider>;
+};

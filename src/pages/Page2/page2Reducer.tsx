@@ -3,7 +3,7 @@ import React, { useReducer } from 'react';
 export type Action ={ type: 'CHANGE_VALUE' | 'CLEAR_VALUE', name: string, value: string }
 export type InputDataType = {[index:string]: string};
 
-const initialState: InputDataType = {}
+const initialState: InputDataType = {};
 
 const reducer = (state:InputDataType,  action: Action) => {
   switch (action.type) {
@@ -18,9 +18,9 @@ const reducer = (state:InputDataType,  action: Action) => {
           [action.name]: '',
         };
     default:
-      return state
+      return state;
   }
-}
+};
 
 export const Page2Context = React.createContext({} as {
   state: InputDataType
@@ -28,8 +28,8 @@ export const Page2Context = React.createContext({} as {
 });
 
 export const Page2ContextProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
   return <Page2Context.Provider value={{state, dispatch}}>
     {children}
-  </Page2Context.Provider>
-}
+  </Page2Context.Provider>;
+};

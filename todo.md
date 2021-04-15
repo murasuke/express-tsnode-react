@@ -10,7 +10,7 @@
     * インデントを合わせる警告・・・わからん後で
     * 無駄なスペースを警告✔
     * trailing comma 必須✔
-    * セミコロン強制 arrow functionの定義
+    * セミコロン強制✔ arrow functionの定義
     * 変数や関数をキャメルケースにする
 * serverフォルダを作る(port:4000)
   * ts-nodeを利用してコンパイル不要とする　✔
@@ -37,6 +37,27 @@
   * 他プロジェクトからコピーしてLintエラー修正✔
 * react-hookを入れる✔
   * 他プロジェクトからコピーしてLintエラー修正✔
+* swagger.yamlを追加
+  * mockサーバとして利用できるようにする
+  * npm scriptとして追加する
+
+## Available Scripts
+
+このプロジェクトでは下記スクリプトが実行できます:
+
+### `yarn server`
+### `yarn dev:server`
+
+### `yarn dev:react`
+### `yarn mock:api`
+
+### `yarn test`
+
+### `yarn build`
+
+### `yarn eject`
+
+### `yarn lint`
 
 -------
 * pemファイル作成方法(idp用)

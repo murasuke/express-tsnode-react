@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { getSearchResults } from "../utils/api";
-import SearchResultList from "../component/SearchResultList"
+import SearchResultList from "../component/SearchResultList";
 
 
 const TopMenu: React.FC = () => {
@@ -10,12 +10,12 @@ const TopMenu: React.FC = () => {
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       setInputVal(e.target.value);
-    }
+    };
 
     const handleClick: React.ReactEventHandler = async() => {
       const jsonResult = await getSearchResults({key: inputVal});
       setSearchResult(jsonResult);
-    }
+    };
 
     return (
       <>
@@ -25,7 +25,7 @@ const TopMenu: React.FC = () => {
           <div style={ {border:"1px solid #AAA"} } >
             <p>検索サンプル バックエンドからjsonでデータを受け取り表示する。バックエンド側では、テキストボックスの値をlikeで検索した結果を返す<br />
             現時点ではダミーデータに対して検索結果を返す実装としている（1や2を入力して検索）</p>
-            <input value={inputVal} onChange={handleChange} onKeyPress={(e)=>{ if(e.key === "Enter") {e.preventDefault();handleClick(e);}}} />
+            <input value={inputVal} onChange={handleChange} onKeyPress={(e)=>{ if(e.key === "Enter") {e.preventDefault(); handleClick(e);}}} />
             <button type="button" onClick={handleClick}>検索</button>
             <SearchResultList results={searchResult} />
           </div>
@@ -47,7 +47,7 @@ const TopMenu: React.FC = () => {
           </p>
         </div>
       </>
-    )
-  }
+    );
+  };
 
   export default TopMenu;

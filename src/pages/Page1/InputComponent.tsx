@@ -15,7 +15,7 @@ export const InputComponent1: React.FC<InputPropsType> = (props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement> ) =>{
     setChecked(e.target.value === '1');
     props.handleChange({ [e.target.name]: e.target.value });
-  }
+  };
 
   const rdoNm = `select_${id}`;
 
@@ -33,7 +33,7 @@ export const InputComponent1: React.FC<InputPropsType> = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export const InputComponent2: React.FC<InputPropsType> = (props) => {
   const { id, title } = props;
@@ -48,12 +48,12 @@ export const InputComponent2: React.FC<InputPropsType> = (props) => {
     } else{
       props.handleChange({ [e.target.name]: e.target.value });
     }
-  }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> ) =>{
     setInputText(e.target.value);
     props.handleChange({ [e.target.name]: e.target.value });
-  }
+  };
 
   const rdoNm = `select_${id}`;
 
