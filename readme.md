@@ -1,6 +1,11 @@
 # ReactAppとそれをhostするexpressアプリサンプル
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* 何か始める際のボイラープレートとして、最低限必要な機能を実装
+  * react-routerでページ切替
+  * react-hook(useReducer)でアプリ全体のステートを管理する
+  * ビルド後、アプリを起動するため＋api側のプロキシとしてserver(port:4000)を実装
+    * serverはts-nodeを利用するため、事前コンパイル不要
+  * eslintはAirbnb + αで設定
+  * .envで環境変数を設定できるようにする。必須チェックあり。
 
 ## todo
 * eslintrc.jsonを追加する✔
@@ -30,20 +35,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   * /api へのアクセスをport:8080にリダイレクトする✔
     * 先にapiサーバのmockを作成し、全てのレスポンスに対してstatus:200を返すようにする✔
     * mockに対してアクセスを転送する(/authへのアクセス除く)
-  * /auth でsaml認証を行えるように
+  * /auth でsaml認証を行えるように ⇒ 別リポジトリにする
   * セッションクッキーがない場合は、認証ページ(idp)へ遷移させる
     * 全ページではなく、一部ページだけ認証を行うためにはどうすればよいのか？
-* dotenv追加
-  * ポート追加
-  * config.tsを追加し、必須チェックと
-  * appConfgに設定を追加してexport
+* dotenv追加✔
+  * ポート追加✔
+  * config.tsを追加し、必須チェック✔
+  * appConfgに設定を追加してexport✔
 * react-routerを入れる✔
   * 他プロジェクトからコピーしてLintエラー修正✔
 * react-hookを入れる✔
   * 他プロジェクトからコピーしてLintエラー修正✔
-* swagger.yamlを追加
-  * mockサーバとして利用できるようにする
-  * npm scriptとして追加する
+* swagger.yamlを追加✔
+  * mockサーバとして利用できるようにする ⇒ yamlに書いたサンプルをそのまま返してくれるmockがない ⇒ 保留
+  * npm scriptとして追加する ⇒ 保留
 
 ## Available Scripts
 
