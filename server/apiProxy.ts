@@ -1,7 +1,6 @@
 import express from 'express';
 import axios, { AxiosRequestConfig, Method } from 'axios';
-
-const API_SERVER = 'http://localhost:8080';
+import appConfig from '../src/confg';
 
 const router = express.Router();
 
@@ -10,7 +9,7 @@ router.all('*', async(req, res) => {
   try{
     const config: AxiosRequestConfig = {
       method: req.method as Method,
-      url: `${API_SERVER}${req.url}`,
+      url: `${appConfig.apiServer}${req.url}`,
       data: { ...req.body },
     };
 

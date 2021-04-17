@@ -4,9 +4,9 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import appProxy from './apiProxy';
+import appConfig from '../src/confg';
 
 const SERVICE_NAME = 'express-tsnode-react';
-const port = 4000;
 
 const app = express();
 app.disable('x-powered-by');
@@ -21,5 +21,5 @@ app.use(`/${SERVICE_NAME}`, appProxy);
 
 
 const server = http.createServer(app);
-server.listen(port, () => console.log(`Listening on ${port}`));
-server.on('error', (error) => { console.error(error); });
+server.listen(appConfig.appPort, () => console.log(`Listening on ${appConfig.appPort}`));
+server.on('error', () => { console.error(appConfig.appPort); });

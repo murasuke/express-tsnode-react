@@ -28,10 +28,10 @@ const Page2: React.FC = ()=>
  * Formを切り出してContextを利用する
  */
 const Page2Form: React.FC = ()=> {
-  const { state, dispatch } = useContext(Page2Context);
+  const { state } = useContext(Page2Context);
   const { dispatch: siteDispatch } = useContext(SiteContext);
   useEffect( () => {
-    siteDispatch({ type: 'CHANGE_PAGE_NAME', strValue: 'Page2', numValue: 0 });
+    siteDispatch({ type: 'CHANGE_PAGE_NAME', pageName: 'Page2' });
   },[]);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

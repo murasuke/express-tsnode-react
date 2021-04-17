@@ -48,7 +48,6 @@
   ],
   "rules": {
     "no-use-before-define": "off",
-    // TypeScirpt なので prop-types は要らない
     "react/prop-types": "off",
     "react/jsx-filename-extension": [
       "error",
@@ -84,6 +83,8 @@
     }],
     "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 0 }],
-    "linebreak-style": ["error", "unix"]
+    "linebreak-style": ["error", "unix"],
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }

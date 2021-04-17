@@ -2,46 +2,89 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## todo
+* eslintrc.jsonを追加する✔
+  * https://qiita.com/sprout2000/items/ee4fc97f83f45ba1d227
+  * prettierも入れる✔
+  * build, node_modulesを対象外にする✔
+    ```json
+    "ignorePatterns": ["build","node_modules"],
+    ```
+  * 下記警告を追加したいが後回し
+    * インデントを合わせる警告・・・わからん後で
+    * 無駄なスペースを警告✔
+    * trailing comma 必須✔
+    * セミコロン強制✔ arrow functionの定義
+    * 変数や関数をキャメルケースにする
+* serverフォルダを作る(port:4000)
+  * ts-nodeを利用してコンパイル不要とする　✔
+    ```typescript
+    // React側のtsconfigとmodule形式が異なる(commonjs必須)ため、server用のtsconfigを読み込む
+    const options = { transpileOnly: true, project:'./server/tsconfig.json' };
+    require('ts-node').register(options);
+    ```
+  * reactビルド後のモジュールをserverから送ることができるようにする。✔
+    ```typescript
+    app.use(express.static(path.join(__dirname, '../build')));
+    ```
+  * /api へのアクセスをport:8080にリダイレクトする✔
+    * 先にapiサーバのmockを作成し、全てのレスポンスに対してstatus:200を返すようにする✔
+    * mockに対してアクセスを転送する(/authへのアクセス除く)
+  * /auth でsaml認証を行えるように
+  * セッションクッキーがない場合は、認証ページ(idp)へ遷移させる
+    * 全ページではなく、一部ページだけ認証を行うためにはどうすればよいのか？
+* dotenv追加
+  * ポート追加
+  * config.tsを追加し、必須チェックと
+  * appConfgに設定を追加してexport
+* react-routerを入れる✔
+  * 他プロジェクトからコピーしてLintエラー修正✔
+* react-hookを入れる✔
+  * 他プロジェクトからコピーしてLintエラー修正✔
+* swagger.yamlを追加
+  * mockサーバとして利用できるようにする
+  * npm scriptとして追加する
+
 ## Available Scripts
 
-In the project directory, you can run:
+このプロジェクトでは下記スクリプトが実行できます:
 
-### `yarn start`
+### `yarn server`
+### `yarn dev:server`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `yarn dev:react`
+### `yarn mock:api`
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `yarn lint`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-------
+* pemファイル作成方法(idp用)
+```
+$ openssl req -x509 -new -newkey rsa:2048 -nodes  -keyout idp-private-key.pem -out idp-public-cert.pem -days 7300
+Generating a RSA private key
+.....+++++
+......+++++
+writing new private key to 'idp-private-key.pem'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:JP
+State or Province Name (full name) [Some-State]:Aichi
+Locality Name (eg, city) []:Oobu
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:Test Identity Provider
+Email Address []:tkyk.niimura@gmail.com
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
+```

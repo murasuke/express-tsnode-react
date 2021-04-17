@@ -12,7 +12,6 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Header {...state} />
         <div className="main-container">
           <main className="content">

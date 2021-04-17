@@ -2,17 +2,17 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-['PORT',
+['APP_PORT',
 'API_SERVER',
 ].forEach( (item) => {
   if (!process.env[item]) {
-    console.error(`env value ${item} is required.`);
+    console.error(`${item} should define in env.`);
     process.exit(1);
   }
 });
 
 const appConfig = {
-  port: process.env.PORT,
+  appPort: process.env.APP_PORT,
   apiServer: process.env.API_SERVER,
 };
 

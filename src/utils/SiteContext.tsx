@@ -1,6 +1,9 @@
-import React , { useReducer } from 'react';
+import React, { useReducer } from 'react';
 
-export type Action ={ type: 'CHANGE_PAGE_NAME' | 'CHANGE_USER' , strValue: string, numValue: number }
+export type Action =
+  { type: 'CHANGE_PAGE_NAME', pageName: string } |
+  { type: 'CHANGE_USER', userName: string, userId: number};
+
 export type SiteContextDataType = {
   pageName: string,
   userId: number,
@@ -13,23 +16,24 @@ const initialState: SiteContextDataType = {
   userName: "user123",
 };
 
-function reducer(state:SiteContextDataType,  action: Action) {
+
+const reducer = (state:SiteContextDataType,  action: Action) => {
   switch (action.type) {
     case 'CHANGE_PAGE_NAME':
       return {
         ...state,
-        pageName: action.strValue,
+        pageName: action.pageName,
       };
     case 'CHANGE_USER':
       return {
         ...state,
-        userId: action.numValue,
-        userName: action.strValue,
+        userId: action.userId,
+        userName: action.userName,
       };
     default:
       return state;
   }
-}
+};
 
 export const SiteContext = React.createContext({} as {
   state: SiteContextDataType
