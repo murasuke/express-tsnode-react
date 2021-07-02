@@ -1,4 +1,4 @@
-# ReactAppとそれをhostするexpressアプリサンプル
+# ReactAppと、host用expressアプリサンプル
 * 何か始める際のボイラープレートとして、最低限必要な機能を実装
   * react-routerでページ切替
   * react-hook(useReducer)でアプリ全体のステートを管理する
